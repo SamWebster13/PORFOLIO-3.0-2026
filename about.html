@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Core | Samuel Webster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/arcade.css" />
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #05030a;
+      color: #e4e4e4;
+      font-family: "Courier New", Courier, monospace;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(58, 31, 4, 0.55), transparent 45%),
+        linear-gradient(#3a1f04, #120902);
+    }
+
+    main {
+      width: min(1400px, 92vw);
+      margin: 0 auto;
+      padding: 4rem 0;
+    }
+
+    .core-header {
+      width: min(900px, 90vw);
+      margin: 0 auto 2rem;
+      padding: 1.5rem 2rem;
+      background: rgba(0, 0, 0, 0.55);
+      border: 2px solid #fbbf24;
+      color: #fbbf24;
+      text-align: center;
+    }
+
+    .core-header h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(2rem, 5vw, 4rem);
+    }
+
+    .core-header p {
+      color: #e4e4e4;
+      margin: 0;
+    }
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 1000px) {
+      .core-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .core-panel {
+      background: rgba(0, 0, 0, 0.55);
+      border: 2px solid currentColor;
+      color: #fbbf24;
+      padding: 2rem;
+      box-shadow: 0 0 24px rgba(251, 191, 36, 0.12);
+    }
+
+    .core-panel h2 {
+      margin-top: 0;
+      color: #fbbf24;
+      text-align: center;
+    }
+
+    .core-panel p,
+    .core-panel label {
+      color: #e4e4e4;
+    }
+
+    .resume-embed {
+      width: 100%;
+      height: 650px;
+      border: 2px solid #fbbf24;
+      background: white;
+    }
+
+    .resume-actions,
+    .link-actions {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .arcade-button,
+    button {
+      display: inline-block;
+      padding: 0.75rem 1.25rem;
+      border: 2px solid currentColor;
+      color: #fbbf24;
+      background: rgba(0, 0, 0, 0.55);
+      text-decoration: none;
+      font-family: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .arcade-button:hover,
+    button:hover {
+      background: #fbbf24;
+      color: #120902;
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .row {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 600px) {
+      .row.two {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.75rem;
+      border: 2px solid #fbbf24;
+      background: rgba(0, 0, 0, 0.55);
+      color: white;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 220px;
+      resize: vertical;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    .btn-accent {
+      background: #16e17f;
+      border-color: #16e17f;
+      color: #05030a;
+    }
+
+    .links-box {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .back-box {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .helper {
+      text-align: center;
+      color: #e4e4e4;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="core-header">
+      <h1>05 THE CORE</h1>
+      <p class="helper">
+        Resume, contact, links, and final system diagnostics.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="core-panel">
+        <h2>Resume Terminal</h2>
+
+        <iframe
+          class="resume-embed"
+          src="https://docs.google.com/document/d/1jqrXFu5i-aoEdzAR7-v1Njj67mfiop_rfFTrP9X36cw/preview">
+        </iframe>
+
+        <div class="resume-actions">
+          <a
+            class="arcade-button"
+            href="https://docs.google.com/document/d/1jqrXFu5i-aoEdzAR7-v1Njj67mfiop_rfFTrP9X36cw/export?format=pdf"
+            target="_blank"
+            rel="noopener noreferrer">
+            Download PDF
+          </a>
+        </div>
+      </article>
+
+      <article class="core-panel">
+        <h2>Send Transmission</h2>
+
+        <form id="contact-form" action="https://formspree.io/f/xrbajjkr" method="POST">
+          <input type="text" name="_gotcha" style="display:none" />
+
+          <div class="row two">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" type="text" name="name" required />
+            </div>
+
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="email" name="_replyto" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="subject">Subject</label>
+              <input id="subject" type="text" name="subject" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+          </div>
+
+          <input type="hidden" name="_subject" value="Portfolio Contact Form" />
+
+          <div class="actions">
+            <button type="submit" class="btn-accent">Send</button>
+            <button type="reset">Clear</button>
+          </div>
+
+          <p id="form-status" class="helper" aria-live="polite"></p>
+        </form>
+      </article>
+    </section>
+
+
+    <h2>Links</h2>
+
+      <div class="link-actions">
+        <a
+        class="arcade-button"
+        href="https://github.com/SamWebster13"
+        target="_blank"
+        rel="noopener noreferrer">
+        GitHub
+        </a>
+        <a
+        class="arcade-button"
+        href="https://www.linkedin.com/feed/"
+        target="_blank"
+        rel="noopener noreferrer">
+        LinkedIn
+        </a>
+        <a
+        class="arcade-button"
+        href="mailto:samuellwebster04@gmail.com">
+        Email
+        </a>
+        </div>
+    </section>
+
+    <div class="back-box">
+     <a href="../index.html#core" class="arcade-button">← BACK TO ARCADE</a>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById("contact-form");
+    const statusEl = document.getElementById("form-status");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      statusEl.textContent = "Sending...";
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          statusEl.textContent = "Transmission received. Thanks for reaching out.";
+        } else {
+          const data = await response.json().catch(() => ({}));
+          statusEl.textContent =
+            data.errors?.[0]?.message || "Transmission failed. Please try again.";
+        }
+      } catch (error) {
+        statusEl.textContent = "Network error. Please try again.";
+      }
+    });
+  </script>
+</body>
+</html>
