@@ -152,3 +152,267 @@ border:
 2px solid currentColor;
 text-decoration:none;
 }
+
+
+
+/* ===============================
+   FEATURED WORKS PAGE
+   =============================== */
+
+.featured-page {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+html:has(.featured-page),
+body.featured-page {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+body.featured-page {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  height: auto;
+}
+
+.featured-room {
+  min-height: 100vh;
+  height: auto;
+}
+
+.featured-header {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.featured-header h1 {
+  margin: 0;
+  color: #c084fc;
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.featured-header p {
+  margin: 0.25rem 0;
+}
+
+.eyebrow {
+  color: #c084fc;
+  letter-spacing: 0.15em;
+  font-weight: bold;
+}
+
+.featured-stage {
+  width: min(1300px, 94vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.slide-arrow {
+  width: 64px;
+  height: 64px;
+  border: 2px solid #c084fc;
+  color: #c084fc;
+  background: rgba(0, 0, 0, 0.55);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.slide-arrow:hover {
+  background: #c084fc;
+  color: #05030a;
+}
+
+.project-screen {
+  position: relative;
+  min-height: 640px;
+  border: 2px solid #c084fc;
+  background: rgba(0, 0, 0, 0.58);
+  box-shadow: 0 0 28px rgba(192, 132, 252, 0.16);
+  overflow: hidden;
+}
+
+.featured-slide {
+  display: none;
+  height: 100%;
+  padding: 2rem;
+}
+
+.featured-slide.active {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  gap: 1rem;
+}
+
+.project-number {
+  color: #c084fc;
+  letter-spacing: 0.15em;
+  font-weight: bold;
+}
+
+.featured-slide h2 {
+  margin: 0;
+  color: #c084fc;
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.project-tagline {
+  max-width: 760px;
+}
+
+.project-media {
+  min-height: 300px;
+  border: 2px dashed currentColor;
+  display: grid;
+  place-items: center;
+  color: #c084fc;
+  background:
+    linear-gradient(135deg, rgba(192,132,252,.12), rgba(0,0,0,.2));
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.slide-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #c084fc;
+  background: transparent;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #c084fc;
+}
+
+@media (max-width: 800px) {
+  .featured-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .featured-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .slide-arrow {
+    width: 100%;
+  }
+
+  .project-screen {
+    min-height: auto;
+  }
+}
+
+body {
+  outline: 20px solid red !important;
+}
+
+/* Featured page polish */
+
+.featured-header {
+  position: relative;
+}
+
+.featured-header .enter-button {
+  position: absolute;
+  left: -13rem;
+  top: 1.8rem;
+  font-size: 0.85rem;
+  padding: 0.55rem 0.85rem;
+}
+
+.slide-arrow {
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  padding: 0;
+}
+
+.slide-arrow::before {
+  display: block;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1100px) {
+  .featured-header .enter-button {
+    position: static;
+  }
+}
+
+.media-gallery {
+  position: relative;
+  min-height: 360px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.media-frame {
+  display: none;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+}
+
+.media-frame.active {
+  display: block;
+}
+
+.media-frame iframe,
+.media-frame img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  border: 0;
+  display: block;
+}
+
+.media-controls {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 0.75rem;
+padding-top: 1rem;
+margin-top: 1rem;
+position: static;
+flex-wrap: wrap;
+}
+
+.media-dot {
+  border: 2px solid #c084fc;
+  background: rgba(0, 0, 0, 0.75);
+  color: #c084fc;
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.media-dot.active,
+.media-dot:hover {
+  background: #c084fc;
+  color: #05030a;
+}
+
+.youtube-embed {
+width: 100%;
+aspect-ratio: 16 / 9;
+border: 0;
+display: block;
+background: black;
+}
