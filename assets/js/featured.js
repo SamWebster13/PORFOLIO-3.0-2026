@@ -9,6 +9,8 @@ let currentSlide = 0;
 function showSlide(index) {
   if (slides.length === 0) return;
 
+  const previousSlide = currentSlide;
+
   if (index < 0) {
     currentSlide = slides.length - 1;
   } else if (index >= slides.length) {
@@ -21,8 +23,20 @@ function showSlide(index) {
     slide.classList.toggle("active", i === currentSlide);
   });
 
+  pausePreviousSlide(previousSlide);
+
   dots.forEach((dot, i) => {
     dot.classList.toggle("active", i === currentSlide);
+  });
+}
+
+function pausePreviousSlide(previousIndex) {
+  const previousSlide = slides[previousIndex];
+  if (!previousSlide) return;
+
+  previousSlide.querySelectorAll("iframe").forEach((iframe) => {
+    const src = iframe.getAttribute("src");
+    iframe.setAttribute("src", src);
   });
 }
 
